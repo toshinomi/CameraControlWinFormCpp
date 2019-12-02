@@ -37,7 +37,6 @@ namespace CameraControlWindowsFormCpp {
 		/// </summary>
 		~FormMain()
 		{
-			OnClickBtnStop(nullptr, nullptr);
 			delete m_videoDevices;
 			delete m_videoSource;
 

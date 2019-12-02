@@ -29,6 +29,7 @@ void FormMain::OnClickBtnClose(Object^ sender, EventArgs^ e)
 	auto result = MessageBox::Show("Close the application ?", "Question", MessageBoxButtons::OKCancel, MessageBoxIcon::Exclamation, MessageBoxDefaultButton::Button2);
 	if (result == ::DialogResult::OK)
 	{
+		OnClickBtnStop(nullptr, nullptr);
 		this->Close();
 	}
 
