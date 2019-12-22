@@ -2,6 +2,11 @@
 
 using namespace CameraControlWindowsFormCpp;
 
+/// <summary>
+/// タイトルバーマウスダウンのクリックイベント
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::OnMouseDownLblTitle(Object^ sender, MouseEventArgs^ e)
 {
 	if ((e->Button & ::MouseButtons::Left) == ::MouseButtons::Left)
@@ -12,6 +17,11 @@ void FormMain::OnMouseDownLblTitle(Object^ sender, MouseEventArgs^ e)
 	return;
 }
 
+/// <summary>
+/// タイトルバーマウスムーブのクリックイベント
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::OnMouseMoveLblTitle(Object^ sender, MouseEventArgs^ e)
 {
 	if ((e->Button & ::MouseButtons::Left) == ::MouseButtons::Left)
@@ -24,6 +34,11 @@ void FormMain::OnMouseMoveLblTitle(Object^ sender, MouseEventArgs^ e)
 	return;
 }
 
+/// <summary>
+/// 閉じるボタンのクリックイベント
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::OnClickBtnClose(Object^ sender, EventArgs^ e)
 {
 	auto result = MessageBox::Show("Close the application ?", "Question", MessageBoxButtons::OKCancel, MessageBoxIcon::Exclamation, MessageBoxDefaultButton::Button2);
@@ -36,6 +51,11 @@ void FormMain::OnClickBtnClose(Object^ sender, EventArgs^ e)
 	return;
 }
 
+/// <summary>
+/// 最小化ボタンのクリックイベント
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::OnClickBtnMinimizedIcon(Object^ sender, EventArgs^ e)
 {
 	this->WindowState = FormWindowState::Minimized;
@@ -43,6 +63,11 @@ void FormMain::OnClickBtnMinimizedIcon(Object^ sender, EventArgs^ e)
 	return;
 }
 
+/// <summary>
+/// カメラ情報取得のクリックイベント
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::OnClickBtnGetCameraInfo(Object^ sender, EventArgs^ e)
 {
 	GetCameraInfo();
@@ -50,6 +75,11 @@ void FormMain::OnClickBtnGetCameraInfo(Object^ sender, EventArgs^ e)
 	return;
 }
 
+/// <summary>
+/// カメラ情報取得
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::GetCameraInfo(void)
 {
 	try
@@ -79,6 +109,11 @@ void FormMain::GetCameraInfo(void)
 	return;
 }
 
+/// <summary>
+/// スタートボタンのクリックイベント
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::OnClickBtnStart(Object^ sender, EventArgs^ e)
 {
 	if (m_isDeviceExist)
@@ -94,6 +129,11 @@ void FormMain::OnClickBtnStart(Object^ sender, EventArgs^ e)
 	return;
 }
 
+/// <summary>
+/// ストップボタンのクリックイベント
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="e">イベントのデータ</param>
 void FormMain::OnClickBtnStop(Object^ sender, EventArgs^ e)
 {
 	if (m_videoSource != nullptr)
@@ -107,6 +147,11 @@ void FormMain::OnClickBtnStop(Object^ sender, EventArgs^ e)
 	return;
 }
 
+/// <summary>
+/// ビデオ描画
+/// </summary>
+/// <param name="sender">オブジェクト</param>
+/// <param name="eventArgs">NewFrameEventのデータ</param>
 void FormMain::VideoRendering(Object^ sender, NewFrameEventArgs^ eventArgs)
 {
 	Bitmap^ bitmap = (Bitmap^)eventArgs->Frame->Clone();
@@ -115,6 +160,9 @@ void FormMain::VideoRendering(Object^ sender, NewFrameEventArgs^ eventArgs)
 	return;
 }
 
+/// <summary>
+/// ビデオリソースの終了
+/// </summary>
 void FormMain::CloseVideoSource(void)
 {
 	if (m_videoSource != nullptr)
