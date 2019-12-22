@@ -78,8 +78,6 @@ void FormMain::OnClickBtnGetCameraInfo(Object^ sender, EventArgs^ e)
 /// <summary>
 /// カメラ情報取得
 /// </summary>
-/// <param name="sender">オブジェクト</param>
-/// <param name="e">イベントのデータ</param>
 void FormMain::GetCameraInfo(void)
 {
 	try
