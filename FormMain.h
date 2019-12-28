@@ -207,20 +207,90 @@ namespace CameraControlWindowsFormCpp {
 		}
 #pragma endregion
 		private:
+			/// <summary>
+			/// マウスポインタ
+			/// </summary>
 			Point^ m_mousePoint;
+
+			/// <summary>
+			/// デバイスが存在状態
+			/// </summary>
 			bool m_isDeviceExist = false;
+
+			/// <summary>
+			/// フィルタ情報のコレクション
+			/// </summary>
 			FilterInfoCollection^ m_videoDevices;
+
+			/// <summary>
+			/// ビデオキャプチャデバイス
+			/// </summary>
 			VideoCaptureDevice^ m_videoSource = nullptr;
 		private:
+			/// <summary>
+			/// タイトルバーマウスダウンのクリックイベント
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="e">イベントのデータ</param>
 			void OnMouseDownLblTitle(Object^ sender, MouseEventArgs^ e);
+
+			/// <summary>
+			/// タイトルバーマウスムーブのクリックイベント
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="e">イベントのデータ</param>
 			void OnMouseMoveLblTitle(Object^ sender, MouseEventArgs^ e);
+
+			/// <summary>
+			/// 閉じるボタンのクリックイベント
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="e">イベントのデータ</param>
 			void OnClickBtnClose(Object^ sender, EventArgs^ e);
+
+			/// <summary>
+			/// 最小化ボタンのクリックイベント
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="e">イベントのデータ</param>
 			void OnClickBtnMinimizedIcon(Object^ sender, EventArgs^ e);
+
+			/// <summary>
+			/// カメラ情報取得のクリックイベント
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="e">イベントのデータ</param>
 			void OnClickBtnGetCameraInfo(Object^ sender, EventArgs^ e);
+
+			/// <summary>
+			/// カメラ情報取得
+			/// </summary>
 			void GetCameraInfo(void);
+
+			/// <summary>
+			/// スタートボタンのクリックイベント
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="e">イベントのデータ</param>
 			void OnClickBtnStart(Object^ sender, EventArgs^ e);
+
+			/// <summary>
+			/// ストップボタンのクリックイベント
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="e">イベントのデータ</param>
 			void OnClickBtnStop(Object^ sender, EventArgs^ e);
+
+			/// <summary>
+			/// ビデオ描画
+			/// </summary>
+			/// <param name="sender">オブジェクト</param>
+			/// <param name="eventArgs">NewFrameEventのデータ</param>
 			void VideoRendering(Object^ sender, NewFrameEventArgs^ eventArgs);
+
+			/// <summary>
+			/// ビデオリソースの終了
+			/// </summary>
 			void CloseVideoSource(void);
 	};
 }
